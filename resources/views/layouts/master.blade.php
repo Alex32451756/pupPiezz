@@ -1,0 +1,7 @@
+@yield('header')
+@include('layouts.header')
+@yield('navar')
+@include('layouts.navar')
+@yield('content')
+@yield('fooder')
+@include('layouts.fooder')
