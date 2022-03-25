@@ -50,7 +50,7 @@
               @endif
               
             </div>
-          </div>
+          </div> 
     
           <!-- Form Box -->
           <div class="col-sm-6 form">
@@ -82,7 +82,7 @@
 
                         @if (Route::has('password.request'))
                             <a class="btn btn-link" href="{{ route('password.request') }}">
-                                {{ __('Forgot Your Password?') }}
+                                {{ __('Olvido su contraseña?') }}
                             </a>
                         @endif
                     </div>

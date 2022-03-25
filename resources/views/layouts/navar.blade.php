@@ -24,7 +24,7 @@
             <a class="nav-link active" href="{{url("/cuidados")}}" aria-current="page">Cuidados</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="{{url('/contacto')}}" aria-current="page">Contactanos</a>
+            <a class="nav-link active" href="{{url('/contactanos')}}" aria-current="page">Contactanos</a>
           </li>
           <li class="nav-item">
             <a class="dropdown-item"

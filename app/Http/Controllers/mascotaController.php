@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Mascota;
+use App\Models\Tipo;
 class mascotaController extends Controller
 {
     public function __construct()
@@ -24,7 +25,15 @@ class mascotaController extends Controller
     public function mascota()
     {
         //
-        return View('components.mascota');
+        $tipos = Tipo::all();
+        //$tipos = Mascota::join("tipo", "tipo.idTipo", "=", "mascota.idTipo")->select("tipo.nomTipo", "tipo.idTipo")->get();
+        return View('components.mascota', compact('tipos'));
+    }
+
+    public function idMascotas(Request $request)
+    {
+        //
+        
     }
 
     /**

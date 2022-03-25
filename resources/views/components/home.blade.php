@@ -145,7 +145,7 @@
 
 <script src="{{asset('vendor/isotope/isotope.pkgd.min.js')}}"></script>
 
-<script src="{{asset('js/google-maps.js')}}"></script>
+
 
 <script src="{{asset('js/theme.js')}}"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

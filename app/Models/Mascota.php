@@ -12,6 +12,6 @@ class Mascota extends Model
     //public $timestamps = false;
 
     protected $fillable = [
-        	'nombre	edad', 'discapa', 'descripcion','tamano', 'pelaje', 'img', 'idTipo', 'created_at', 'updated_at'
+        	'nombre', 'edad', 'discapa', 'descripcion','tamano', 'pelaje', 'img', 'idTipo', 'created_at', 'updated_at'
     ];
 }

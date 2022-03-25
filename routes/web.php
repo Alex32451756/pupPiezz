@@ -25,5 +25,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::post('/resgistro', [App\Http\Controllers\UsuarioController::class,'create']); 
 Route::get('/detalleM/{id}', [App\Http\Controllers\mascotaController::class, 'show']);
 Route::get('/mascotas', [App\Http\Controllers\mascotaController::class, 'mascota']);
+//contacto
+Route::get('/contactanos', [App\Http\Controllers\ContactoController::class, 'contacto']);
+Route::get('/mascotaId', [App\Http\Controllers\mascotaController::class, 'idMascotas']);
 
-
+Route::get('/mascotaId', 'mascotaController@idMascotas');
