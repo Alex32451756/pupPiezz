@@ -10,8 +10,8 @@ class mascotaController extends Controller
     public function __construct()
     {
         //$this->middleware('auth', ['only' => ['show', 'index']]);
-    
-        $this->middleware('auth', ['only' => ['mascota', 'show']]);
+        $this->middleware('verified');
+        $this->middleware('auth', ['only' => ['mascota', 'show', 'cuidados']]);
     }
 
 
@@ -29,12 +29,13 @@ class mascotaController extends Controller
         //$tipos = Mascota::join("tipo", "tipo.idTipo", "=", "mascota.idTipo")->select("tipo.nomTipo", "tipo.idTipo")->get();
         return View('components.mascota', compact('tipos'));
     }
-
-    public function idMascotas(Request $request)
+    public function cuidados()
     {
         //
-        
+       
+        return View('components.cuidados');
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -72,6 +73,62 @@ class mascotaController extends Controller
             return view('components.detalleMa', compact('detalles'));
         }
         
+    }
+
+    public function mascotasId(Request $request)
+    {
+        $idTipo = $request['idTipo'];
+        if($idTipo == "chales"){
+            $mascotas = Mascota::all();
+            return response(json_encode($mascotas),200)->header('Content-type', 'text/plain');
+        }
+            $mascotas = Mascota::where('idTipo', $idTipo)->get();
+            foreach ($mascotas as $mascota) {
+                $mascotasArray[$mascota->idMascota] = $mascota->img;
+            }
+            return response(json_encode($mascotas),200)->header('Content-type', 'text/plain');
+        
+    }
+
+    public function search(Request $request)
+    {
+        //$idTipo = $request['idTipo'];
+        $term = $request->get('term');
+
+        $querys = Mascota::where('nombre', 'LIKE', '%'.$term. '%')->get();
+
+        $data = [];
+        foreach($querys as $query){
+            $data[]=[
+                'label' => $query->nombre
+            ];
+        }
+
+        return $data;
+    }
+
+    public function encontradas(Request $request)
+    {
+        $term = $request['search'];
+       
+
+        if(empty($term)){
+            return back()->with('error', 'Algo Salio Mal');
+        }else{
+            $detalles = Mascota::where('nombre', 'LIKE', '%'.$term. '%')->get();
+  
+            
+        if(sizeof($detalles) == 0){
+                $bandera = 1;
+                return view('components.detalleMa', compact('bandera'));
+        }else{
+            $bandera = 0;
+            return view('components.detalleMa', compact('detalles', 'bandera'));
+        }
+            
+        }
+
+
     }
 
     /**

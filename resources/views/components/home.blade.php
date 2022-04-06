@@ -27,9 +27,12 @@
 @endsection
 
 @section('content')
-
-
+<div class="position-absolute top-35 start-50 translate-middle" style="width: auto">
+  {{ Breadcrumbs::render('home') }}
+</div>
+<br>
 <header>
+
   <div id="carouselExampleIndicators" class="carousel slide" style="padding: 15px" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>

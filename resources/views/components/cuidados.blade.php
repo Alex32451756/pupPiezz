@@ -8,6 +8,11 @@
 @endsection 
 
 @section('content')
+<div class="position-absolute top-35 start-50 translate-middle" style="width: auto">
+  {{ Breadcrumbs::render('cuidados') }}
+</div>
+<br>
+
 <div class="container" style="border: 12px solid black; padding: 8px; border-style: double;">
 
     <h2 clas="align-items-center" style="text-align: center">Cuidados Básicos para los animales</h2>

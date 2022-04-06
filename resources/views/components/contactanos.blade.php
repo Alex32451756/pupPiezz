@@ -144,6 +144,11 @@ border: 1px solid #97d848;
 @endsection
 
 @section('content')
+<div class="position-absolute top-35 start-50 translate-middle" style="width: auto">
+  
+  {{ Breadcrumbs::render('contactanos') }}
+</div>
+<br>
 <div class="container">
     <h2 clas="align-items-center" style="text-align: center">Contáctanos</h2>
     <img class="rounded mx-auto d-block" src="{{asset("img/perrito.jpg")}}" alt="Gargando...." style="padding: 10px; border-radius: 50px" width="400px" height="400px">

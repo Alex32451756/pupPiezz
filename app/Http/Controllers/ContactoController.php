@@ -28,6 +28,12 @@ class ContactoController extends Controller
         return View('components.contactanos');
     }
 
+    public function all()
+    {
+        //
+        return "hola";
+    }
+
     public function mensaje()
     {
         //

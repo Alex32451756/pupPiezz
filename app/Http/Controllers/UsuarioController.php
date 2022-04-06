@@ -15,6 +15,7 @@ class UsuarioController extends Controller
    public function __construct()
     {
         //$this->middleware('auth', ['only' => ['create']]);
+        //$this->middleware('verified');
     }
 
     /**
@@ -41,18 +42,15 @@ class UsuarioController extends Controller
             'username' => 'required',
             'lastName' => 'required',
             'password' => [
-                'required',
-                Password::min(8) // Debe tener por lo menos 12 caracteres
-                    ->mixedCase() // Debe tener mayúsculas + minúsculas
-                    ->letters() // Debe incluir letras
-                    ->numbers() // Debe incluir números
-                    ->symbols(), // Debe incluir símbolos
-            ],
-        ];
+                'required', 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).+$/',
+                Password::min(8)],
+          
+        ]; 
         $messages = [
             'username.required' => 'Agrega el nombre.',
             'lastName.required' => 'Agrega el Apellido.',
             'password.required' => 'Agrega la contraseña.',
+            'password.mixedCase' => 'La contraseña deve contener mayúsculas y minisculas.',
             'lastName.symbols' => 'Agrega Sinbolos.',
 
         ];
