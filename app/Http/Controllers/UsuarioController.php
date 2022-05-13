@@ -14,7 +14,7 @@ class UsuarioController extends Controller
 {
    public function __construct()
     {
-        //$this->middleware('auth', ['only' => ['create']]);
+        $this->middleware('auth', ['only' => ['usuarios']]);
         //$this->middleware('verified');
     }
 
@@ -77,6 +77,16 @@ class UsuarioController extends Controller
 
         return back()->with('success', 'Registro con éxito');
 
+    }
+
+    /**
+     * 
+     */
+    Public Function usuarios()
+    {
+        $usuarios = User::all();
+
+        return View('components.listado', compact('usuarios'));
     }
 
     /**

@@ -63,8 +63,11 @@
   <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
 
     <div id="contenido" name="contenido" class="feature col text-center"> 
-
-  
+      <div class="card" id="card" style="width: 18rem;">
+      
+            
+        </div>
+      </div>
     </div>
 
   <!--  <div class="feature col text-center">
@@ -100,7 +103,7 @@
       function loadCareer() {
           var idTipo = $('#tipo').val();
         
-          console.log(idTipo);
+     
           if ($.trim(idTipo) != '') {
               $.ajax({
                   url: "mascota/all",
@@ -115,17 +118,17 @@
                     $('#contenido').empty();
                   $('#contenido').append("<h1>Seleccione Un Tipo de Mascota</h1>");
                   }
-                  console.log(arreglo);
-                  $('#contenido').empty();
-                  for (let x = 0; x < arreglo.length; x++) {
-                      $('#contenido').append("<img class='card-img-top' src='" +  arreglo[x].img + "' alt='Card image cap'>");
-                      $('#contenido').append("<div class='card-body' style='background-color: #5ce3e5;'>");
-                      $('#contenido').append("<button type='button' style='width: 200px; height: 40px; background-color: #073775' class='btn btn-primary'>Ver</button>");
-                        $('#contenido').append("</div>");
-                      $('#contenido').append("</div>");
+              
 
-                  }
-                  console.log(arreglo);
+                  for (let x = 0; x < arreglo.length; x++) {
+                      $('#card').append("<img class='card-img-top' src='" +  arreglo[x].img + "' alt='Card image cap'>");
+                      $('#card').append("<div class='card-body'  style='background-color: #5ce3e5;'>");
+                      $('#card').append("<button type='button' style='width: 200px; height: 40px; background-color: #073775' class='btn btn-primary'>Ver</button>");
+
+                     
+
+                    }
+                
               })
           }
       }
